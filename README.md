@@ -1,2 +1,6 @@
 # web-uploadimg
-For learning Firebase Storage.
+
+I made this for learning purpose
+
+- Firebase Storage
+- TypeScript
