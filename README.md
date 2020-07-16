@@ -3,4 +3,4 @@
 I made this for learning purpose
 
 - Firebase Storage
-- TypeScript
+- TypeScript with Next.js
