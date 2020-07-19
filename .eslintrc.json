@@ -21,5 +21,10 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "semi": ["error", "never"],
+        "linebreak-style": "off",
+        "react/jsx-filename-extension": "off",
+        "no-unused-vars": ["warn", { "varsIgnorePattern": "^[I][A-Z]|^[T][A-Z]" }],
+        "react/jsx-props-no-spreading": "off"
     }
 }

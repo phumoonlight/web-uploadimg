@@ -1,3 +1,6 @@
 const Index = () => <div>Hello TS</div>
 
-export default Index ;
+export default Index
+
+
+
