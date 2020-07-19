@@ -2,7 +2,7 @@ import React from 'react'
 import { AppProps as TAppProps } from 'next/app'
 import Head from 'next/head'
 import { SEO } from '../src/config'
-import '../src/global.css'
+import '../src/styles/global.css'
 
 const App = ({ Component, pageProps }: TAppProps) => (
   <>

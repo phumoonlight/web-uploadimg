@@ -1,0 +1,34 @@
+.root {
+  text-align: center;
+}
+
+.imgcontainer {
+  display: inline-block;
+  height: 300px;
+}
+
+.imgcontainer > img {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  height: 300px;
+}
+
+@media only screen and (max-width: 426px) {
+  .imgcontainer {
+    display: inline-block;
+    height: 150px;
+  }
+
+  .imgcontainer > img {
+    margin-right: 2.5px;
+    margin-bottom: 2.5px;
+    height: 150px;
+  }
+}
+
+.divider {
+  margin: 65px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5vw;
+}
