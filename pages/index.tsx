@@ -24,11 +24,9 @@ const Index = (): JSX.Element => {
   }, [])
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    try {
-      const { files } = event.target
-      const filesArray = [...files]
-      setUploadedImgFiles([...uploadedImgFiles, ...filesArray])
-    } catch (error) { }
+    const { files } = event.target
+    const filesArray = [...files]
+    setUploadedImgFiles([...uploadedImgFiles, ...filesArray])
   }
 
   return (
