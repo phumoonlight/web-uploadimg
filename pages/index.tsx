@@ -28,7 +28,7 @@ const Index = (): JSX.Element => {
       const { files } = event.target
       const filesArray = [...files]
       setUploadedImgFiles([...uploadedImgFiles, ...filesArray])
-    } catch (error) {}
+    } catch (error) { }
   }
 
   return (
@@ -42,6 +42,7 @@ const Index = (): JSX.Element => {
         <ImgPreview key={file.name} file={file} storageRef={storageRef} />
       ))}
       <ImgExplore imgUrls={exploreImgUrls} />
+      <div className="fb-comments" data-href="https://uploadimg.vercel.app/" data-numposts="5" data-width="" />
     </div>
   )
 }
