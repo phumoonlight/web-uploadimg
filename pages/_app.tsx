@@ -18,8 +18,6 @@ const App = ({ Component, pageProps }: TAppProps) => (
       <meta property="og:description" content={SEO.openGraph.description} />
       <meta property="og:image" content={SEO.openGraph.image} />
     </Head>
-    <div id="fb-root" />
-    <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v7.0&appId=3123211517799491" nonce="DDTMtXeA" />
     <Component {...pageProps} />
   </>
 )
