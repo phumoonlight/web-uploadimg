@@ -40,7 +40,7 @@ const Index = (): JSX.Element => {
         <ImgPreview key={file.name} file={file} storageRef={storageRef} />
       ))}
       <ImgExplore imgUrls={exploreImgUrls} />
-      <div className="fb-comments" data-href="https://uploadimg.vercel.app/" data-numposts="5" data-width="" />
+      <div className="fb-comments" data-href="https://uploadimg.vercel.app/" data-numposts="5" data-width="100%" />
     </div>
   )
 }
