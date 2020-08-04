@@ -1,4 +1,5 @@
 .root {
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -9,7 +10,7 @@
 
 .imgcontainer > a > img {
   margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
   height: 300px;
 }
 
@@ -19,7 +20,7 @@
     height: 150px;
   }
 
-  .imgcontainer > img {
+  .imgcontainer > a > img {
     margin-right: 2.5px;
     margin-bottom: 2.5px;
     height: 150px;
@@ -27,8 +28,25 @@
 }
 
 .divider {
-  margin: 65px;
+  margin: 25px;
   text-align: center;
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: 25px;
+}
+
+.buttonloadimg {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(10, 10, 10) ;
+  padding: 15px;
+  margin: 50px;
+  border-radius: 50px;
+  transition: .15s;
+}
+
+.buttonloadimg:hover {
+  background-color: rgb(100, 100, 100);
 }

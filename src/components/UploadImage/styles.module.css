@@ -1,38 +1,17 @@
 .root {
-  margin: 50px;
   text-align: center;
 }
 
 .overide {
   cursor: pointer;
-  border: none;
-  font-size: 25px;
-  background: rgb(255, 213, 61);
-  padding: 25px;
-  width: 25%;
-  transition: .25s;
-}
-
-@media only screen and (max-width: 1145px) {
-  .overide {
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .overide {
-    width: 75%;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .overide {
-    width: 90%;
-  }
+  border: solid rgba(100, 100, 100) 2.5px;
+  padding: 20px;
+  border-radius: 50px;
+  outline: none;
 }
 
 .overide:hover {
-  background: rgb(238, 196, 43);
+
 }
 
 .input {

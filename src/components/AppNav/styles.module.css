@@ -1,14 +1,14 @@
 .root {
   text-align: right;
-  background-color: #2C3335;
   padding: 10px;
 }
 
 .link {
-  color: wheat;
+  color: rgb(50, 50, 50);
   text-decoration: none;
   margin: 10px;
   font-size: 25px;
+  font-weight: bold;
 }
 
 .link:hover {
