@@ -11,22 +11,22 @@ import {
 import css from '../src/styles/index.module.css'
 
 const Index = (): JSX.Element => {
-  const [uploadedImgFiles, setUploadedImgFiles] = useState<File[]>([])
-  const [exploreImgUrls, setExploreImgUrls] = useState<string[]>([])
-  const storageRef = useFirebaseStorageRef()
+  const [uploadedImageFiles, setUploadedImageFiles] = useState<File[]>([])
+  const [uploadedImageURLs, setUploadedImageURLs] = useState<string[]>([])
+  const firebaseStorageRef = useFirebaseStorageRef()
 
   useEffect(() => {
     (async () => {
       const { data } = await Axios.get('/api/images')
       const { imagesCache } = data
-      setExploreImgUrls(imagesCache)
+      setUploadedImageURLs(imagesCache)
     })()
   }, [])
 
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target
-    const filesArray = [...files]
-    setUploadedImgFiles([...uploadedImgFiles, ...filesArray])
+    const fileArray = [...files]
+    setUploadedImageFiles([...uploadedImageFiles, ...fileArray])
   }
 
   return (
@@ -34,13 +34,18 @@ const Index = (): JSX.Element => {
       <AppNav />
       <div className={css.appheader}>
         <AppTitle />
-        <UploadImage onChange={handleInput} />
+        <UploadImage onChange={handleFileInput} />
       </div>
-      {uploadedImgFiles.map((file: File) => (
-        <ImgPreview key={file.name} file={file} storageRef={storageRef} />
+      {uploadedImageFiles.map((file: File) => (
+        <ImgPreview key={file.name} file={file} storageRef={firebaseStorageRef} />
       ))}
-      <ImgExplore imgUrls={exploreImgUrls} />
-      <div className="fb-comments" data-href="https://uploadimg.vercel.app/" data-numposts="5" data-width="100%" />
+      <ImgExplore imgUrls={uploadedImageURLs} />
+      <div
+        className="fb-comments"
+        data-href="https://uploadimg.vercel.app/"
+        data-numposts="5"
+        data-width="100%"
+      />
     </div>
   )
 }
