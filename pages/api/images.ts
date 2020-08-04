@@ -31,24 +31,24 @@ const doPost = async (req: INextApiRequest): Promise<ReturnResult> => {
   return { status: 201, payload: 'success added url.' }
 }
 
-const requestHandler = async (req: INextApiRequest, res: INextApiResponse) => {
-  let returnResult: ReturnResult
+const handleRequest = async (req: INextApiRequest, res: INextApiResponse) => {
+  let result: ReturnResult
   switch (req.method) {
     case 'GET':
-      returnResult = await doGet()
+      result = await doGet()
       break
     case 'POST':
-      returnResult = await doPost(req)
+      result = await doPost(req)
       break
     default:
-      returnResult = {
+      result = {
         status: 200,
         payload: {
           message: 'not found.',
         },
       }
   }
-  res.status(returnResult.status).json(returnResult.payload)
+  res.status(result.status).json(result.payload)
 }
 
-export default requestHandler
+export default handleRequest
