@@ -15,23 +15,20 @@ const ImgPreview: React.FunctionComponent<ImgPreviewProps> = (props: ImgPreviewP
   const [isReady, setIsReady] = useState<boolean>(false)
 
   useEffect(() => {
-    const upload = async () => {
-      const metadata = { contentType: file.type }
-      const fileExtension = file.name.split('.').pop()
-      const newFileName = `${+new Date()}-${getRandomString(10)}.${fileExtension}`
-      // eslint-disable-next-line no-new
-      new Compressor(file, {
-        quality: 0.5,
-        success: async (compressedBlob) => {
-          const result = await storageRef.child(newFileName).put(compressedBlob, metadata)
-          const downloadUrl = await result.ref.getDownloadURL()
-          Axios.post('/api/images', { uploadedImageUrl: downloadUrl })
-          setUrl(downloadUrl)
-          setIsReady(true)
-        },
-      })
-    }
-    upload()
+    const metadata = { contentType: file.type }
+    const fileExtension = file.name.split('.').pop()
+    const newFileName = `${+new Date()}-${getRandomString(10)}.${fileExtension}`
+    // eslint-disable-next-line no-new
+    new Compressor(file, {
+      quality: 0.5,
+      success: async (compressedBlob) => {
+        const result = await storageRef.child(newFileName).put(compressedBlob, metadata)
+        const downloadUrl = await result.ref.getDownloadURL()
+        Axios.post('/api/images', { uploadedImageUrl: downloadUrl })
+        setUrl(downloadUrl)
+        setIsReady(true)
+      },
+    })
   }, [])
 
   return (
