@@ -12,24 +12,22 @@ interface ReturnResult {
 
 (global as any).XMLHttpRequest = XMLHttpRequest
 const storageRef = initFirebaseAppStorageServerSide()
-let imagesNotReady = true
-let imagesCache = []
+let localStoredImages = []
 
 const doGet = async (): Promise<ReturnResult> => {
-  if (imagesNotReady) {
+  const localStoredImagesEmpty = !localStoredImages.length
+  if (localStoredImagesEmpty) {
     const { items } = await storageRef.list()
-    const imgUrls = items.map((item) => item.getDownloadURL())
-    const promisedImgUrls = await Promise.all(imgUrls)
-    const reversedImgUrls = promisedImgUrls.reverse()
-    imagesCache = reversedImgUrls
-    imagesNotReady = false
+    const imageURLs = await Promise.all(items.map((item) => item.getDownloadURL()))
+    const reversedImageURLs = imageURLs.reverse()
+    localStoredImages = reversedImageURLs
   }
-  return { status: 200, payload: { imagesCache } }
+  return { status: 200, payload: { localStoredImages } }
 }
 
 const doPost = async (req: INextApiRequest): Promise<ReturnResult> => {
   const { uploadedImageUrl } = req.body
-  imagesCache.unshift(uploadedImageUrl)
+  localStoredImages.unshift(uploadedImageUrl)
   return { status: 201, payload: 'success added url.' }
 }
 

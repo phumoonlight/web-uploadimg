@@ -18,8 +18,8 @@ const Index = (): JSX.Element => {
   useEffect(() => {
     (async () => {
       const { data } = await Axios.get('/api/images')
-      const { imagesCache } = data
-      setUploadedImageURLs(imagesCache)
+      const { localStoredImages } = data
+      setUploadedImageURLs(localStoredImages)
     })()
   }, [])
 
