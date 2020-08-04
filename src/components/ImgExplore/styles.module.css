@@ -7,7 +7,7 @@
   height: 300px;
 }
 
-.imgcontainer > img {
+.imgcontainer > a > img {
   margin-right: 5px;
   margin-bottom: 5px;
   height: 300px;
