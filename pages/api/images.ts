@@ -11,13 +11,13 @@ interface ReturnResult {
 }
 
 (global as any).XMLHttpRequest = XMLHttpRequest
-const storageRef = initFirebaseAppStorageServerSide()
+const firebaseStorageRef = initFirebaseAppStorageServerSide()
 let localStoredImages = []
 
 const doGet = async (): Promise<ReturnResult> => {
   const localStoredImagesEmpty = !localStoredImages.length
   if (localStoredImagesEmpty) {
-    const { items } = await storageRef.list()
+    const { items } = await firebaseStorageRef.list()
     const imageURLs = await Promise.all(items.map((item) => item.getDownloadURL()))
     const reversedImageURLs = imageURLs.reverse()
     localStoredImages = reversedImageURLs
