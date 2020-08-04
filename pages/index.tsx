@@ -40,6 +40,7 @@ const Index = (): JSX.Element => {
         <ImgPreview key={file.name} file={file} storageRef={firebaseStorageRef} />
       ))}
       <ImgExplore imgUrls={uploadedImageURLs} />
+      <div className={css.commentlabel}>Comment</div>
       <div
         className="fb-comments"
         data-href="https://uploadimg.vercel.app/"
