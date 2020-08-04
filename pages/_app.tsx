@@ -1,6 +1,6 @@
 import React from 'react'
-import { AppProps as TAppProps } from 'next/app'
 import Head from 'next/head'
+import { AppProps as TAppProps } from 'next/app'
 import { SEO } from '../src/config'
 import '../src/styles/global.css'
 
