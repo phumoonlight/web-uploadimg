@@ -47,6 +47,10 @@ const Index = (): JSX.Element => {
         data-numposts="5"
         data-width="100%"
       />
+      <div className={css.credit}>
+        {'< > by '}
+        <a href="https://github.com/phumoonlight">@phumoonlight</a>
+      </div>
     </div>
   )
 }

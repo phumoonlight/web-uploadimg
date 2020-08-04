@@ -36,3 +36,17 @@
   font-size: 45px;
   margin-top: 50px;
 }
+
+.credit {
+  margin: 25px;
+  text-align: center;
+  color: rgb(75, 75, 75);
+  text-decoration: none;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.credit > a {
+  text-decoration: none;
+}
