@@ -5,7 +5,7 @@ interface UploadImageProps {
   onChange?: React.ChangeEventHandler
 }
 
-const UploadImage: React.FunctionComponent<UploadImageProps> = (props) => {
+const UploadImage: React.FunctionComponent<UploadImageProps> = (props: UploadImageProps) => {
   const { onChange } = props
   let inputRef: HTMLInputElement
   const handleClick = () => inputRef.click()
@@ -17,7 +17,7 @@ const UploadImage: React.FunctionComponent<UploadImageProps> = (props) => {
         className={css.overide}
         onClick={handleClick}
       >
-        START UPLOAD
+        Click here to upload your image
       </button>
       <input
         type="file"
