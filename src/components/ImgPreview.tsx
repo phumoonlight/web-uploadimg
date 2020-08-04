@@ -4,12 +4,12 @@ import Compressor from 'compressorjs'
 import getRandomString from '../functions/getRandomString'
 import css from './ImgPreview.module.css'
 
-interface IImgPreviewProps {
+interface ImgPreviewProps {
   file: File,
   storageRef: firebase.storage.Reference
 }
 
-const ImgPreview = (props: IImgPreviewProps) => {
+const ImgPreview: React.FunctionComponent<ImgPreviewProps> = (props: ImgPreviewProps) => {
   const { file, storageRef } = props
   const [url, setUrl] = useState<string>('')
   const [isReady, setIsReady] = useState<boolean>(false)
