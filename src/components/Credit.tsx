@@ -1,10 +1,14 @@
 import React from 'react'
+import LinkNewTab from './LinkNewTab'
+import { GITHUB_URL } from '../config'
 import css from './Credit.module.css'
+
+const LABEL = '< > by '
 
 const Credit: React.FunctionComponent = (): JSX.Element => (
   <div className={css.root}>
-    {'< > by '}
-    <a href="https://github.com/phumoonlight">@phumoonlight</a>
+    {LABEL}
+    <LinkNewTab href={GITHUB_URL}>@phumoonlight</LinkNewTab>
   </div>
 )
 

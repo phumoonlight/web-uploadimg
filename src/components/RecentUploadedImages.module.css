@@ -1,7 +1,15 @@
 .root {
-  margin-top: 50px;
   text-align: center;
+  margin-top: 50px;
 }
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  margin: 25px;
+  font-size: 25px;
+}
+
 
 .imgcontainer {
   display: inline-block;
@@ -25,13 +33,6 @@
     margin-bottom: 2.5px;
     height: 150px;
   }
-}
-
-.divider {
-  margin: 25px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
 }
 
 .buttonloadimg {

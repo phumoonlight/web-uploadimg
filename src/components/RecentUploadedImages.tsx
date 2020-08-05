@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
+import LinkNewTab from './LinkNewTab'
 import css from './RecentUploadedImages.module.css'
 
 const RecentUploadedImages: React.FunctionComponent = () => {
@@ -18,12 +19,12 @@ const RecentUploadedImages: React.FunctionComponent = () => {
 
   return (
     <div className={css.root}>
-      <div className={css.divider}>RECENT UPLOADED IMAGES</div>
+      <div className={css.heading}>RECENT UPLOADED IMAGES</div>
       {partialImageURLs.map((imgUrl) => (
         <div key={imgUrl} className={css.imgcontainer}>
-          <a href={imgUrl} target="_blank" rel="noopener noreferrer">
+          <LinkNewTab href={imgUrl}>
             <img src={imgUrl} alt="public-img" />
-          </a>
+          </LinkNewTab>
         </div>
       ))}
       {maxDisplayImage <= partialImageURLs.length && (
