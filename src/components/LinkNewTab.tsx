@@ -3,9 +3,10 @@ import React from 'react'
 interface LinkNewTabProps {
   href?: string
   className?: string
+  children: JSX.Element | string
 }
 
-const LinkNewTab: React.FunctionComponent<LinkNewTabProps> = (props) => {
+const LinkNewTab: React.FunctionComponent<LinkNewTabProps> = (props: LinkNewTabProps) => {
   const { className, href, children } = props
   return (
     <a

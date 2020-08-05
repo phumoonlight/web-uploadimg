@@ -1,11 +1,11 @@
 import React from 'react'
-import css from './styles.module.css'
+import css from './UploadImageInput.module.css'
 
 interface UploadImageProps {
   onChange?: React.ChangeEventHandler
 }
 
-const UploadImage: React.FunctionComponent<UploadImageProps> = (props: UploadImageProps) => {
+const UploadImageInput: React.FunctionComponent<UploadImageProps> = (props: UploadImageProps) => {
   const { onChange } = props
   let inputRef: HTMLInputElement
   const handleClick = () => inputRef.click()
@@ -31,4 +31,4 @@ const UploadImage: React.FunctionComponent<UploadImageProps> = (props: UploadIma
   )
 }
 
-export default UploadImage
+export default UploadImageInput

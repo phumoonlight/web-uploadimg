@@ -1,15 +1,21 @@
-import React from 'react'
-import css from './styles.module.css'
+import React, { useState, useEffect } from 'react'
+import Axios from 'axios'
+import css from './RecentUploadedImages.module.css'
 
-interface ImgExploreProps {
-  imgUrls: string[]
-}
-
-const ImgExplore: React.FunctionComponent<ImgExploreProps> = (props: ImgExploreProps) => {
-  const { imgUrls } = props
-  const [maxDisplayImage, setMaxDisplayImage] = React.useState(10)
-  const partialImageURLs = imgUrls.slice(0, maxDisplayImage)
+const RecentUploadedImages: React.FunctionComponent = () => {
+  const [maxDisplayImage, setMaxDisplayImage] = useState(10)
+  const [uploadedImageURLs, setUploadedImageURLs] = useState<string[]>([])
+  const partialImageURLs = uploadedImageURLs.slice(0, maxDisplayImage)
   const handleClickMoreImage = () => setMaxDisplayImage(maxDisplayImage + 10)
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await Axios.get('/api/images')
+      const { localStoredImages } = data
+      setUploadedImageURLs(localStoredImages)
+    })()
+  }, [])
+
   return (
     <div className={css.root}>
       <div className={css.divider}>RECENT UPLOADED IMAGES</div>
@@ -34,4 +40,4 @@ const ImgExplore: React.FunctionComponent<ImgExploreProps> = (props: ImgExploreP
   )
 }
 
-export default ImgExplore
+export default RecentUploadedImages

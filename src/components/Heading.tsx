@@ -1,6 +1,6 @@
 import React from 'react'
 import { APP } from '../config'
-import css from './AppTitle.module.css'
+import css from './Heading.module.css'
 
 const AppTitle: React.FunctionComponent = (): JSX.Element => (
   <div className={css.root}>
