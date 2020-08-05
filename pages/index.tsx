@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import Axios from 'axios'
+import React, { useState } from 'react'
 import useFirebaseStorageRef from '../src/hooks/useFirebaseStorageRef'
 import {
   Nav,
@@ -23,15 +22,13 @@ const Index = (): JSX.Element => {
   return (
     <div className={css.approot}>
       <Nav />
-      <div className={css.appheader}>
-        <Heading />
-        <UploadImageInput onChange={handleFileInput} />
-      </div>
+      <Heading />
+      <UploadImageInput onChange={handleFileInput} />
       {uploadedImageFiles.map((file: File) => (
         <ImgPreview key={file.name} file={file} storageRef={firebaseStorageRef} />
       ))}
       <RecentUploadedImages />
-      <div className={css.commentlabel}>Comment</div>
+      <div className="fb-comment-label">COMMENT</div>
       <div
         className="fb-comments"
         data-href="https://uploadimg.vercel.app/"
