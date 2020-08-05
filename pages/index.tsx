@@ -6,8 +6,9 @@ import {
   ImgPreview,
   UploadImageInput,
   RecentUploadedImages,
+  FacebookComment,
+  Credit,
 } from '../src/components'
-import css from '../src/styles/index.module.css'
 
 const Index = (): JSX.Element => {
   const [uploadedImageFiles, setUploadedImageFiles] = useState<File[]>([])
@@ -20,7 +21,7 @@ const Index = (): JSX.Element => {
   }
 
   return (
-    <div className={css.approot}>
+    <div>
       <Nav />
       <Heading />
       <UploadImageInput onChange={handleFileInput} />
@@ -28,17 +29,8 @@ const Index = (): JSX.Element => {
         <ImgPreview key={file.name} file={file} storageRef={firebaseStorageRef} />
       ))}
       <RecentUploadedImages />
-      <div className="fb-comment-label">COMMENT</div>
-      <div
-        className="fb-comments"
-        data-href="https://uploadimg.vercel.app/"
-        data-numposts="5"
-        data-width="100%"
-      />
-      <div className={css.credit}>
-        {'< > by '}
-        <a href="https://github.com/phumoonlight">@phumoonlight</a>
-      </div>
+      <FacebookComment />
+      <Credit />
     </div>
   )
 }
