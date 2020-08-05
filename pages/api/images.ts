@@ -2,7 +2,6 @@ import {
   NextApiRequest as INextApiRequest,
   NextApiResponse as INextApiResponse,
 } from 'next'
-import XMLHttpRequest from 'xhr2'
 import initFirebaseAppStorageServerSide from '../../src/functions/initFirebaseAppStorageServerSide'
 
 interface ReturnResult {
@@ -10,19 +9,24 @@ interface ReturnResult {
   payload: any
 }
 
-(global as any).XMLHttpRequest = XMLHttpRequest
 const firebaseStorageRef = initFirebaseAppStorageServerSide()
-let localStoredImages = []
+let isImagesNotFetch = true
+let localStoredImages: string[] = []
+
+const fetchImagesFromFirebase = async () => {
+  const { items } = await firebaseStorageRef.list()
+  const imageURLs = await Promise.all(items.map((item) => item.getDownloadURL()))
+  const reversedImageURLs = imageURLs.reverse()
+  localStoredImages = reversedImageURLs
+  isImagesNotFetch = false
+}
 
 const doGet = async (): Promise<ReturnResult> => {
-  const localStoredImagesEmpty = !localStoredImages.length
-  if (localStoredImagesEmpty) {
-    const { items } = await firebaseStorageRef.list()
-    const imageURLs = await Promise.all(items.map((item) => item.getDownloadURL()))
-    const reversedImageURLs = imageURLs.reverse()
-    localStoredImages = reversedImageURLs
+  if (isImagesNotFetch) await fetchImagesFromFirebase()
+  return {
+    status: 200,
+    payload: { localStoredImages },
   }
-  return { status: 200, payload: { localStoredImages } }
 }
 
 const doPost = async (req: INextApiRequest): Promise<ReturnResult> => {
