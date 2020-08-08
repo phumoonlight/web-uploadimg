@@ -4,10 +4,15 @@ import LinkNewTab from './LinkNewTab'
 import css from './RecentUploadedImages.module.css'
 
 const RecentUploadedImages: React.FunctionComponent = () => {
+  const [renderLoadButton, setRenderLoadButton] = useState(true)
   const [maxDisplayImage, setMaxDisplayImage] = useState(10)
   const [uploadedImageURLs, setUploadedImageURLs] = useState<string[]>([])
   const partialImageURLs = uploadedImageURLs.slice(0, maxDisplayImage)
-  const handleClickMoreImage = () => setMaxDisplayImage(maxDisplayImage + 10)
+  const handleClickMoreImage = () => {
+    setMaxDisplayImage(maxDisplayImage + 10)
+    setRenderLoadButton(false)
+    setTimeout(() => setRenderLoadButton(true), 1500)
+  }
 
   useEffect(() => {
     (async () => {
@@ -27,7 +32,7 @@ const RecentUploadedImages: React.FunctionComponent = () => {
           </LinkNewTab>
         </div>
       ))}
-      {maxDisplayImage <= partialImageURLs.length && (
+      {maxDisplayImage <= partialImageURLs.length && renderLoadButton && (
         <div>
           <input
             className={css.buttonloadimg}
