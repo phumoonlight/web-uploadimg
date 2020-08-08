@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import useFirebaseStorageRef from '../src/hooks/useFirebaseStorageRef'
-import {
-  Nav,
-  Heading,
-  ImgPreview,
-  UploadImageInput,
-  RecentUploadedImages,
-  FacebookComment,
-  Credit,
-} from '../src/components'
+import Nav from '../src/components/Nav'
+import Heading from '../src/components/Heading'
+import UploadImageInput from '../src/components/UploadImageInput'
+import ImgPreview from '../src/components/ImgPreview'
+import RecentUploadedImages from '../src/components/RecentUploadedImages'
+import FacebookComment from '../src/components/FacebookComment'
+import Credit from '../src/components/Credit'
 
 const Index = (): JSX.Element => {
   const [uploadedImageFiles, setUploadedImageFiles] = useState<File[]>([])
