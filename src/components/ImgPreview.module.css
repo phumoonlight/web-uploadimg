@@ -8,7 +8,13 @@
   display: inline-block;
   border: solid 1px rgb(190, 190, 190);
   padding: 10px;
-  box-shadow: 0px 7px 25px 5px rgba(143, 143, 143, 0.65);
+  box-shadow: 0px 7px 25px 5px rgba(143, 143, 143, 0.5);
+}
+
+.container > img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .sharecontainer > input {
@@ -45,12 +51,8 @@
   background: rgb(200, 200, 255);
 }
 
-.container > a:hover {
-  text-decoration: underline;
-}
-
-.container > img {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
+@media only screen and (max-width: 570px) {
+  .container {
+    width: calc(100% - 50px);
+  }
 }
